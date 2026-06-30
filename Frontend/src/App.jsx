@@ -1,16 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from "../pages/Home";
-import About from "../pages/About";
-import HowToPlay from "../pages/HowToPlay";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import Dashboard from "../pages/Dashboard";
-import Quiz from "../pages/Quiz";
-import Result from "../pages/Result";
-import NotFound from "../pages/NotFound";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import HowToPlay from "./pages/HowToPlay";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import Quiz from "./pages/Quiz";
+import Result from "./pages/Result";
+import NotFound from "./pages/NotFound";
 
-import Navbar from "../components/Navbar";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
