@@ -2,10 +2,11 @@ import { NavLink } from "react-router-dom";
 import { FaBolt } from "react-icons/fa6";
 
 function Navbar() {
+  const isLoggedIn = false;
+
   return (
     <nav className="bg-slate-900 text-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-2 text-2xl font-bold">
           <FaBolt className="text-yellow-400" />
@@ -14,7 +15,6 @@ function Navbar() {
 
         {/* Navigation Links */}
         <div className="flex items-center gap-6 text-sm font-medium">
-
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -56,6 +56,14 @@ function Navbar() {
             Signup
           </NavLink>
 
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? "text-blue-400" : "hover:text-blue-400 transition"
+            }
+          >
+            Dashboard
+          </NavLink>
         </div>
       </div>
     </nav>
