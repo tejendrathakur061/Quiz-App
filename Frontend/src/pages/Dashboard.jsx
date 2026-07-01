@@ -1,4 +1,4 @@
-import ProfilePhoto from "../assets/Images/profile.svg"
+import ProfilePhoto from "../assets/Images/profile.svg";
 
 const user = {
   name: "Tejendra Thakur",
@@ -32,83 +32,129 @@ const history = [
 
 const Dashboard = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      <div className="bg-blue-600 text-white rounded-xl p-8 flex flex-col md:flex-row justify-between items-center">
-        <div>
-          <h1 className="text-4xl font-bold">Welcome, {user.name} 👋</h1>
+    <section className="bg-slate-100 min-h-screen py-10 px-4">
+      <div className="max-w-6xl mx-auto">
 
-          <p className="mt-3">{user.email}</p>
+        {/* Profile Card */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center justify-between gap-8">
 
-          <p className="text-sm mt-2">Member Since: {user.joined}</p>
+          <div className="flex items-center gap-6">
+
+            <img
+              src={ProfilePhoto}
+              alt="Profile"
+              className="w-28 h-28 rounded-full border-4 border-blue-500"
+            />
+
+            <div>
+
+              <h1 className="text-3xl font-bold text-slate-800">
+                Welcome, {user.name} 👋
+              </h1>
+
+              <p className="text-gray-600 mt-2">
+                {user.email}
+              </p>
+
+              <p className="text-sm text-gray-500 mt-2">
+                Member Since : {user.joined}
+              </p>
+
+            </div>
+
+          </div>
+
+          <button className="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-3 rounded-lg font-semibold">
+            Edit Profile
+          </button>
+
         </div>
 
-        <div className="mt-6 md:mt-0">
-          <img
-            src={ProfilePhoto}
-            alt="Profile"
-            className="w-24 h-24 rounded-full"
-          />
-        </div>
-      </div>
+        {/* Quiz History */}
 
-      {/* Statistics */}
-      <section className="grid md:grid-cols-3 gap-6 mt-10">
-        <div className="bg-white shadow-md rounded-xl p-6 text-center">
-          <h2 className="text-3xl font-bold text-blue-600">25</h2>
-          <p className="mt-2 text-gray-600">Total Quizzes</p>
-        </div>
+        <div className="bg-white rounded-2xl shadow-lg mt-10 p-8">
 
-        <div className="bg-white shadow-md rounded-xl p-6 text-center">
-          <h2 className="text-3xl font-bold text-green-600">82%</h2>
-          <p className="mt-2 text-gray-600">Average Score</p>
-        </div>
+          <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
 
-        <div className="bg-white shadow-md rounded-xl p-6 text-center">
-          <h2 className="text-3xl font-bold text-orange-500">98%</h2>
-          <p className="mt-2 text-gray-600">Best Score</p>
-        </div>
-      </section>
+            <h2 className="text-2xl font-bold">
+              Recent Quiz History
+            </h2>
 
-      {/* Quiz History */}
-      <section className="mt-16">
-        <h2 className="text-3xl font-bold mb-8">Recent Quiz History</h2>
+            <button className="bg-slate-900 text-white px-5 py-2 rounded-lg hover:bg-slate-800 transition">
+              View All
+            </button>
 
-        <div className="overflow-x-auto">
-          <table className="w-full bg-white shadow-md rounded-xl overflow-hidden">
-            <thead className="bg-blue-600 text-white">
-              <tr>
-                <th className="p-4 text-left">Technology</th>
-                <th className="p-4 text-left">Score</th>
-                <th className="p-4 text-left">Date</th>
-                <th className="p-4 text-left">Status</th>
-              </tr>
-            </thead>
+          </div>
 
-            <tbody>
-              {history.map((item) => (
-                <tr key={item.id} className="border-b">
-                  <td className="p-4">{item.technology}</td>
+          <div className="overflow-x-auto">
 
-                  <td className="p-4">{item.score}</td>
+            <table className="w-full">
 
-                  <td className="p-4">{item.date}</td>
+              <thead>
 
-                  <td
-                    className={`p-4 font-semibold ${
-                      item.status === "Passed"
-                        ? "text-green-600"
-                        : "text-red-500"
-                    }`}
-                  >
-                    {item.status}
-                  </td>
+                <tr className="bg-slate-900 text-white">
+
+                  <th className="p-4 text-left">Technology</th>
+
+                  <th className="p-4 text-left">Score</th>
+
+                  <th className="p-4 text-left">Date</th>
+
+                  <th className="p-4 text-left">Status</th>
+
                 </tr>
-              ))}
-            </tbody>
-          </table>
+
+              </thead>
+
+              <tbody>
+
+                {history.map((item) => (
+
+                  <tr
+                    key={item.id}
+                    className="border-b hover:bg-slate-50 transition"
+                  >
+
+                    <td className="p-4 font-medium">
+                      {item.technology}
+                    </td>
+
+                    <td className="p-4 font-semibold text-blue-600">
+                      {item.score}
+                    </td>
+
+                    <td className="p-4 text-gray-600">
+                      {item.date}
+                    </td>
+
+                    <td className="p-4">
+
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                          item.status === "Passed"
+                            ? "bg-green-100 text-green-700"
+                            : "bg-red-100 text-red-600"
+                        }`}
+                      >
+                        {item.status}
+                      </span>
+
+                    </td>
+
+                  </tr>
+
+                ))}
+
+              </tbody>
+
+            </table>
+
+          </div>
+
         </div>
-      </section>
-    </div>
+
+      </div>
+    </section>
   );
 };
 
