@@ -11,6 +11,7 @@ import Result from "./pages/Result";
 import NotFound from "./pages/NotFound";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -28,6 +29,8 @@ const App = () => {
         <Route path="/result" element={<Result />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      <Footer />
     </>
   );
 };
