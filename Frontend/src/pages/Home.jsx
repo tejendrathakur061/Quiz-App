@@ -31,7 +31,7 @@ const Home = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Link
-                to="/login"
+                to="/quiz"
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition flex items-center gap-2"
               >
                 Start Quiz
@@ -69,13 +69,14 @@ const Home = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {categories.map((category) => (
-            <CategoryCard
-              key={category.title}
-              icon={category.icon}
-              title={category.title}
-              questions={category.questions}
-              difficulty={category.difficulty}
-            />
+            <Link key={category.title} to="/quiz">
+              <CategoryCard
+                icon={category.icon}
+                title={category.title}
+                questions={category.questions}
+                difficulty={category.difficulty}
+              />
+            </Link>
           ))}
         </div>
       </section>
@@ -156,7 +157,7 @@ const Home = () => {
             </p>
 
             <Link
-              to="/login"
+              to="/quiz"
               className="inline-flex items-center gap-2 mt-8 bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
               Start Quiz <FaArrowRight />
