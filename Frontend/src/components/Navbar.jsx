@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { FaBolt } from "react-icons/fa6";
 
 function Navbar() {
-  const isLoggedIn = false;
+  // const isLoggedIn = false;
 
   return (
     <nav className="bg-slate-900 text-white shadow-md sticky top-0 z-50">
